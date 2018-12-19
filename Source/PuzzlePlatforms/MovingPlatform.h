@@ -24,6 +24,9 @@ public:
 	UPROPERTY(EditAnywhere, Meta = (MakeEditWidget = true), Category = "Gameplay")
 	FVector TargetLocation;
 
+	void AddActiveTrigger();
+	void RemoveActiveTrigger();
+
 protected:
 
 	virtual void BeginPlay() override;
@@ -31,8 +34,9 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-
 	FVector GlobalTargetLocation;
 	FVector GlobalStartLocation;
 
+	UPROPERTY(EditAnywhere, Category = "Gameplay")
+	int ActiveTriggers = 1;
 };
